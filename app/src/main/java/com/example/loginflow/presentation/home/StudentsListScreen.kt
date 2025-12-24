@@ -1,5 +1,6 @@
 package com.example.loginflow.presentation.home
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -256,80 +257,77 @@ private fun TodaysSummaryCard(
             text = "Today's Summary",
             fontSize = 20.sp,
             fontWeight = FontWeight.Bold,
-            color = Color.Black,
             modifier = Modifier.padding(bottom = 12.dp)
         )
 
         Card(
             modifier = Modifier.fillMaxWidth(),
             shape = RoundedCornerShape(16.dp),
-            colors = CardDefaults.cardColors(containerColor = Color(0xFF9C27B0)),
-            elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
+            colors = CardDefaults.cardColors(
+                containerColor = Color(0xFFFCF7FF)
+            ),
+            border = BorderStroke(1.dp, Color(0xFFB39DDB)),
+            elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
         ) {
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(20.dp)
+                    .padding(20.dp),
+                horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                // Character and Mood Section
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy(12.dp)
-                ) {
-                    // Character placeholder (you can replace with actual image using Coil)
-                    Box(
-                        modifier = Modifier
-                            .size(80.dp)
-                            .clip(CircleShape)
-                            .background(Color.White.copy(alpha = 0.3f)),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        Text(
-                            text = "🔍",
-                            fontSize = 40.sp
-                        )
-                    }
-                    Column {
-                        Text(
-                            text = mood,
-                            fontSize = 18.sp,
-                            fontWeight = FontWeight.Bold,
-                            color = Color.White
-                        )
-                    }
-                }
 
-                Spacer(modifier = Modifier.height(16.dp))
+                // Character
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_focused),
+                    contentDescription = null,
+                    modifier = Modifier.size(72.dp),
+                    tint = Color.Unspecified
+                )
+
+                Spacer(modifier = Modifier.height(12.dp))
+
+                // Mood
+                Text(
+                    text = mood,
+                    fontSize = 22.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = Color(0xFF7E57C2)
+                )
+
+                Spacer(modifier = Modifier.height(8.dp))
 
                 // Description
                 Text(
                     text = description,
                     fontSize = 14.sp,
-                    color = Color.White,
+                    color = Color(0xFF333333),
+                    textAlign = TextAlign.Center,
                     lineHeight = 20.sp
                 )
 
                 Spacer(modifier = Modifier.height(20.dp))
 
-                // Video Button
+                // CTA Button
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .clip(RoundedCornerShape(8.dp))
+                        .clip(RoundedCornerShape(10.dp))
                         .background(Color.Black)
-                        .clickable { /* Handle video click */ }
-                        .padding(vertical = 12.dp, horizontal = 16.dp),
+                        .clickable { }
+                        .padding(vertical = 14.dp),
                     verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                    horizontalArrangement = Arrangement.Center
                 ) {
                     Icon(
                         imageVector = Icons.Default.PlayArrow,
-                        contentDescription = "Play",
-                        tint = Color.White,
-                        modifier = Modifier.size(20.dp)
+                        contentDescription = null,
+                        tint = Color.White
                     )
+
+                    Spacer(modifier = Modifier.width(8.dp))
+
                     Text(
-                        text = "$videoAction: $videoTitle",
+                        text = videoAction,
                         fontSize = 14.sp,
                         color = Color.White,
                         fontWeight = FontWeight.Medium
