@@ -1,4 +1,4 @@
-package com.example.loginflow.presentation.components.dashboard
+package com.example.loginflow.presentation.home.components.dashboard
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement

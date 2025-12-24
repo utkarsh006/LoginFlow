@@ -1,4 +1,4 @@
-package com.example.loginflow.presentation.components.dashboard
+package com.example.loginflow.presentation.home.components.dashboard
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement

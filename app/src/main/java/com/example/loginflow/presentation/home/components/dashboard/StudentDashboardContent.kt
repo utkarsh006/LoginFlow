@@ -1,4 +1,4 @@
-package com.example.loginflow.presentation.components.dashboard
+package com.example.loginflow.presentation.home.components.dashboard
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -18,8 +18,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.loginflow.data.StudentInfoDTO
-import com.example.loginflow.presentation.components.summary.TodaySummaryCard
-import com.example.loginflow.presentation.components.weeklyoverview.WeeklyOverviewSection
+import com.example.loginflow.presentation.home.components.summary.TodaySummaryCard
+import com.example.loginflow.presentation.home.components.weeklyoverview.WeeklyOverviewSection
 
 @Composable
 fun StudentDashboardContent(

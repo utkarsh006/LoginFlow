@@ -1,4 +1,4 @@
-package com.example.loginflow.presentation.components.summary
+package com.example.loginflow.presentation.home.components.summary
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background

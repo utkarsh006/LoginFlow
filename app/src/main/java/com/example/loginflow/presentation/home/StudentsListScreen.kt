@@ -17,7 +17,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.example.loginflow.presentation.components.dashboard.StudentDashboardContent
+import com.example.loginflow.presentation.home.components.dashboard.StudentDashboardContent
 
 @Composable
 fun StudentsListScreen(

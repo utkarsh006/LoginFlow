@@ -1,4 +1,4 @@
-package com.example.loginflow.presentation.components.weeklyoverview
+package com.example.loginflow.presentation.home.components.weeklyoverview
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
