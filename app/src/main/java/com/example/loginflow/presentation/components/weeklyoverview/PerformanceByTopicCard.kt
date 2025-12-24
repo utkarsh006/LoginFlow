@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Divider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -59,6 +60,12 @@ fun PerformanceByTopicCard(
                     tint = Color.Unspecified
                 )
             }
+
+
+            Divider(
+                color = Color(0xFFE0E0E0),
+                thickness = 1.dp
+            )
 
             Spacer(modifier = Modifier.height(12.dp))
 
