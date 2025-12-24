@@ -45,10 +45,12 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
 import com.example.loginflow.data.StudentInfoDTO
 
 @Composable
 fun StudentsListScreen(
+    navController: NavController,
     viewModel: StudentsListViewModel = hiltViewModel()
 ) {
     val state = viewModel.state.value
@@ -71,13 +73,16 @@ fun StudentsListScreen(
                     .align(Alignment.Center)
             )
         } else if (state.studentInfo != null) {
-            StudentDashboardContent(studentInfo = state.studentInfo)
+            StudentDashboardContent(navController, studentInfo = state.studentInfo)
         }
     }
 }
 
 @Composable
-private fun StudentDashboardContent(studentInfo: StudentInfoDTO) {
+private fun StudentDashboardContent(
+    navController: NavController,
+    studentInfo: StudentInfoDTO
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -87,7 +92,10 @@ private fun StudentDashboardContent(studentInfo: StudentInfoDTO) {
         // Header Section
         DashboardHeader(
             studentName = studentInfo.student.name,
-            studentClass = studentInfo.student.`class`
+            studentClass = studentInfo.student.`class`,
+            onNotificationClick = {
+                navController.navigate("notifications")
+            }
         )
 
         Spacer(modifier = Modifier.height(24.dp))
@@ -128,6 +136,7 @@ private fun StudentDashboardContent(studentInfo: StudentInfoDTO) {
 private fun DashboardHeader(
     studentName: String,
     studentClass: String,
+    onNotificationClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     Row(
@@ -155,7 +164,9 @@ private fun DashboardHeader(
         Icon(
             imageVector = Icons.Default.Notifications,
             contentDescription = "Notifications",
-            modifier = Modifier.size(24.dp),
+            modifier = Modifier
+                .size(24.dp)
+                .clickable { onNotificationClick() },
             tint = Color.Black
         )
     }
@@ -271,7 +282,6 @@ private fun TodaysSummaryCard(
         ) {
             Column(
                 modifier = Modifier
-                    .fillMaxWidth()
                     .padding(20.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {

@@ -29,17 +29,18 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.loginflow.presentation.notification.components.NotificationItem
 import com.example.loginflow.presentation.notification.components.SettingsItem
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun NotificationsSettingsScreen() {
+fun NotificationsSettingsScreen(navController: NavController) {
     Scaffold(
         topBar = {
             TopAppBar(
                 navigationIcon = {
-                    IconButton(onClick = {}) {
+                    IconButton(onClick = { navController.popBackStack() }) {
                         Icon(
                             imageVector = Icons.Default.ArrowBack,
                             contentDescription = "Back"
