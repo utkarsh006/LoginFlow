@@ -29,8 +29,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.loginflow.presentation.components.NotificationItem
-import com.example.loginflow.presentation.components.SettingsItem
+import com.example.loginflow.presentation.notification.components.NotificationItem
+import com.example.loginflow.presentation.notification.components.SettingsItem
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
