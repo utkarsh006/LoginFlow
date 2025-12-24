@@ -1,4 +1,4 @@
-package com.example.loginflow.presentation
+package com.example.loginflow.presentation.home
 
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
@@ -31,7 +31,8 @@ class StudentsListViewModel @Inject constructor(
                 }
 
                 is Resource.Error -> {
-                    _state.value = StudentInfoListState(error = result.message ?: "Unexpected Error")
+                    _state.value =
+                        StudentInfoListState(error = result.message ?: "Unexpected Error")
                 }
 
                 is Resource.Loading -> {

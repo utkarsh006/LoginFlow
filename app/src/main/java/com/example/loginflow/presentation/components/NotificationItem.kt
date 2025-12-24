@@ -1,4 +1,4 @@
-package com.example.loginflow.presentation
+package com.example.loginflow.presentation.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box

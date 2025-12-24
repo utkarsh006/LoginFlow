@@ -1,4 +1,4 @@
-package com.example.loginflow.presentation
+package com.example.loginflow.presentation.home
 
 import com.example.loginflow.data.StudentInfoDTO
 

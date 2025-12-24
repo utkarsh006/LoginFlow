@@ -1,4 +1,4 @@
-package com.example.loginflow.presentation
+package com.example.loginflow.presentation.home
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -22,7 +22,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.navigation.NavController
+import com.example.loginflow.presentation.home.StudentsListViewModel
 
 @Composable
 fun StudentsListScreen(
