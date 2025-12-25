@@ -19,6 +19,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -48,14 +49,14 @@ fun PerformanceByTopicCard(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
-                    text = "Performance by Topic",
+                    text = stringResource(R.string.performance_by_topic),
                     fontSize = 16.sp,
                     fontWeight = FontWeight.Bold,
                     color = Color.Black
                 )
                 Icon(
                     painter = painterResource(id = R.drawable.ic_performance_weekly),
-                    contentDescription = "Quiz streak icon",
+                    contentDescription = stringResource(R.string.quiz_streak_icon),
                     modifier = Modifier.size(40.dp),
                     tint = Color.Unspecified
                 )

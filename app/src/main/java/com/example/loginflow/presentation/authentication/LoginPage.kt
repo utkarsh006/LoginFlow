@@ -18,10 +18,12 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
+import com.example.loginflow.R
 import com.example.loginflow.common.ViewExtensions.showToast
 
 @Composable
@@ -58,14 +60,14 @@ fun LoginPage(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text(text = "Login Page", fontSize = 30.sp)
+        Text(text = stringResource(R.string.login_page), fontSize = 30.sp)
 
         Spacer(modifier = Modifier.height(16.dp))
 
         OutlinedTextField(
             value = email,
             onValueChange = { email = it },
-            label = { Text("Email") }
+            label = { Text(stringResource(R.string.email)) }
         )
 
         Spacer(modifier = Modifier.height(8.dp))
@@ -73,7 +75,7 @@ fun LoginPage(
         OutlinedTextField(
             value = password,
             onValueChange = { password = it },
-            label = { Text("Password") }
+            label = { Text(stringResource(R.string.password)) }
         )
 
         Spacer(modifier = Modifier.height(8.dp))
@@ -81,7 +83,7 @@ fun LoginPage(
         Button(onClick = {
             authViewModel.login(email, password)
         }) {
-            Text(text = "Login")
+            Text(text = stringResource(R.string.login))
         }
 
         Spacer(modifier = Modifier.height(8.dp))
@@ -89,7 +91,7 @@ fun LoginPage(
         TextButton(onClick = {
             navController.navigate("signup")
         }) {
-            Text(text = "Don't have an account? Signup")
+            Text(text = stringResource(R.string.dont_have_account))
         }
     }
 }

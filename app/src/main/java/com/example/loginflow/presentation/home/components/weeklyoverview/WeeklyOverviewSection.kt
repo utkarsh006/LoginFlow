@@ -9,9 +9,11 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.loginflow.R
 import com.example.loginflow.data.StudentInfoDTO
 
 @Composable
@@ -25,7 +27,7 @@ fun WeeklyOverviewSection(
             .padding(horizontal = 20.dp)
     ) {
         Text(
-            text = "Weekly Overview",
+            text = stringResource(R.string.weekly_overview),
             fontSize = 20.sp,
             fontWeight = FontWeight.Bold,
             color = Color.Black,

@@ -21,6 +21,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -50,7 +51,7 @@ fun AccuracyCard(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
-                    text = "Accuracy",
+                    text = stringResource(R.string.accuracy),
                     fontSize = 16.sp,
                     fontWeight = FontWeight.Bold,
                     color = Color.Black
@@ -72,7 +73,7 @@ fun AccuracyCard(
             Spacer(modifier = Modifier.height(8.dp))
 
             Text(
-                text = "${overallAccuracy.percentage}% correct",
+                text = stringResource(R.string.percent_correct, overallAccuracy.percentage),
                 fontSize = 14.sp,
                 fontWeight = FontWeight.Medium,
                 color = Color.Black

@@ -19,6 +19,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -39,7 +40,7 @@ fun StatsCardsRow(
     ) {
         StatCard(
             modifier = Modifier.weight(1f),
-            title = "Availability",
+            title = stringResource(R.string.availability),
             value = availability,
             borderColor = Color(0xFF4CAF50),
             backgroundTint = Color(0xFFEAF7EA),
@@ -48,8 +49,8 @@ fun StatsCardsRow(
 
         StatCard(
             modifier = Modifier.weight(1f),
-            title = "Quiz",
-            value = "$quizAttempts Attempt",
+            title = stringResource(R.string.quiz),
+            value = stringResource(R.string.attempt, quizAttempts),
             borderColor = Color(0xFFFF9800),
             backgroundTint = Color(0xFFFFF4E5),
             iconRes = R.drawable.ic_quiz
@@ -57,7 +58,7 @@ fun StatsCardsRow(
 
         StatCard(
             modifier = Modifier.weight(1f),
-            title = "Accuracy",
+            title = stringResource(R.string.accuracy),
             value = accuracy,
             borderColor = Color(0xFFF44336),
             backgroundTint = Color(0xFFFFEEEE),

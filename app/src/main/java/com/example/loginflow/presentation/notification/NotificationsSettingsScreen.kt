@@ -25,11 +25,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.loginflow.R
 import com.example.loginflow.presentation.authentication.AuthViewModel
 import com.example.loginflow.presentation.notification.components.NotificationItem
 import com.example.loginflow.presentation.notification.components.SettingsItem
@@ -47,7 +49,7 @@ fun NotificationsSettingsScreen(
                     IconButton(onClick = { navController.popBackStack() }) {
                         Icon(
                             imageVector = Icons.Default.ArrowBack,
-                            contentDescription = "Back"
+                            contentDescription = stringResource(R.string.back)
                         )
                     }
                 },
@@ -57,7 +59,7 @@ fun NotificationsSettingsScreen(
                         contentAlignment = Alignment.Center
                     ) {
                         Text(
-                            text = "Notifications & Settings",
+                            text = stringResource(R.string.notifications_settings),
                             fontSize = 16.sp,
                             fontWeight = FontWeight.Medium,
                             textAlign = TextAlign.Center
@@ -81,15 +83,15 @@ fun NotificationsSettingsScreen(
         ) {
 
             Text(
-                text = "Notifications",
+                text = stringResource(R.string.notifications),
                 style = MaterialTheme.typography.titleMedium
             )
 
             Spacer(modifier = Modifier.height(12.dp))
 
             NotificationItem(
-                title = "Missed quiz in physics in yesterday",
-                subtitle = "2 hours ago",
+                title = stringResource(R.string.missed_quiz_notification),
+                subtitle = stringResource(R.string.two_hours_ago),
                 accentColor = Color(0xFFFFA726),
                 backgroundColor = Color(0xFFFFF7EC)
             )
@@ -97,8 +99,8 @@ fun NotificationsSettingsScreen(
             Spacer(modifier = Modifier.height(8.dp))
 
             NotificationItem(
-                title = "Badge earned",
-                subtitle = "8 hours ago",
+                title = stringResource(R.string.badge_earned),
+                subtitle = stringResource(R.string.eight_hours_ago),
                 accentColor = Color(0xFFAB47BC),
                 backgroundColor = Color(0xFFF6EFF9)
             )
@@ -106,8 +108,8 @@ fun NotificationsSettingsScreen(
             Spacer(modifier = Modifier.height(8.dp))
 
             NotificationItem(
-                title = "Teacher Note",
-                subtitle = "1 day ago",
+                title = stringResource(R.string.teacher_note),
+                subtitle = stringResource(R.string.one_day_ago),
                 accentColor = Color(0xFF66BB6A),
                 backgroundColor = Color(0xFFF1FAF1)
             )
@@ -115,7 +117,7 @@ fun NotificationsSettingsScreen(
             Spacer(modifier = Modifier.height(24.dp))
 
             Text(
-                text = "Settings",
+                text = stringResource(R.string.settings),
                 style = MaterialTheme.typography.titleMedium
             )
 
@@ -123,20 +125,20 @@ fun NotificationsSettingsScreen(
 
             SettingsItem(
                 icon = Icons.Default.Person,
-                title = "Switch Child",
-                subtitle = "Change active child profile"
+                title = stringResource(R.string.switch_child),
+                subtitle = stringResource(R.string.change_active_child_profile)
             )
 
             SettingsItem(
                 icon = Icons.Default.Face,
-                title = "Language",
-                subtitle = "English"
+                title = stringResource(R.string.language),
+                subtitle = stringResource(R.string.english)
             )
 
             SettingsItem(
                 icon = Icons.Default.Delete,
-                title = "Logout",
-                subtitle = "Sign out of your account",
+                title = stringResource(R.string.logout),
+                subtitle = stringResource(R.string.sign_out_account),
                 iconTint = Color.Red,
                 onClick = {
                     authViewModel.logout()
