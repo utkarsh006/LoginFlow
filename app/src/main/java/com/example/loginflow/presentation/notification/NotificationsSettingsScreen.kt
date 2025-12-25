@@ -30,12 +30,16 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.loginflow.presentation.authentication.AuthViewModel
 import com.example.loginflow.presentation.notification.components.NotificationItem
 import com.example.loginflow.presentation.notification.components.SettingsItem
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun NotificationsSettingsScreen(navController: NavController) {
+fun NotificationsSettingsScreen(
+    navController: NavController,
+    authViewModel: AuthViewModel
+) {
     Scaffold(
         topBar = {
             TopAppBar(
@@ -133,7 +137,13 @@ fun NotificationsSettingsScreen(navController: NavController) {
                 icon = Icons.Default.Delete,
                 title = "Logout",
                 subtitle = "Sign out of your account",
-                iconTint = Color.Red
+                iconTint = Color.Red,
+                onClick = {
+                    authViewModel.logout()
+                    navController.navigate("login") {
+                        popUpTo(0) { inclusive = true }
+                    }
+                }
             )
         }
     }

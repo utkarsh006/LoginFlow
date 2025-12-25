@@ -1,6 +1,7 @@
 package com.example.loginflow.presentation.notification.components
 
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -24,12 +25,14 @@ fun SettingsItem(
     icon: ImageVector,
     title: String,
     subtitle: String,
-    iconTint: Color = Color.Black
+    iconTint: Color = Color.Black,
+    onClick: (() -> Unit)? = null
 ) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(vertical = 12.dp),
+            .padding(vertical = 12.dp)
+            .then(if (onClick != null) Modifier.clickable(onClick = onClick) else Modifier),
         verticalAlignment = Alignment.CenterVertically
     ) {
 
