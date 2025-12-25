@@ -1,8 +1,7 @@
-package com.example.meal.domain.usecases.get_meals
+package com.example.loginflow.domain
 
 import com.example.loginflow.common.Resource
 import com.example.loginflow.data.StudentInfoDTO
-import com.example.loginflow.domain.StudentInfoRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import java.io.IOException

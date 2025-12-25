@@ -4,7 +4,7 @@ import com.example.loginflow.common.Constants
 import com.example.loginflow.data.StudentInfoApi
 import com.example.loginflow.data.StudentInfoRepoImpl
 import com.example.loginflow.domain.StudentInfoRepository
-import com.example.meal.domain.usecases.get_meals.GetStudentsInfoUseCase
+import com.example.loginflow.domain.GetStudentsInfoUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
