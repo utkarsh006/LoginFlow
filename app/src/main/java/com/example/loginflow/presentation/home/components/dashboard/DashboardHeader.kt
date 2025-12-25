@@ -16,11 +16,13 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import com.example.loginflow.ui.theme.Black
+import com.example.loginflow.ui.theme.FontSize16
+import com.example.loginflow.ui.theme.FontSize28
+import com.example.loginflow.ui.theme.Gray
 import com.example.loginflow.R
 
 
@@ -41,15 +43,15 @@ fun DashboardHeader(
         Column {
             Text(
                 text = stringResource(R.string.hello_user, studentName),
-                fontSize = 28.sp,
+                fontSize = FontSize28,
                 fontWeight = FontWeight.Bold,
-                color = Color.Black
+                color = Black
             )
             Spacer(modifier = Modifier.height(4.dp))
             Text(
                 text = stringResource(R.string.class_label, studentClass),
-                fontSize = 16.sp,
-                color = Color.Gray,
+                fontSize = FontSize16,
+                color = Gray,
                 fontWeight = FontWeight.Medium
             )
         }
@@ -59,7 +61,7 @@ fun DashboardHeader(
             modifier = Modifier
                 .size(24.dp)
                 .clickable { onNotificationClick() },
-            tint = Color.Black
+            tint = Black
         )
     }
 }

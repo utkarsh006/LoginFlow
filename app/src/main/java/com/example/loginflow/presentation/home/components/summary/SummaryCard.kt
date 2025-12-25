@@ -29,7 +29,15 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import com.example.loginflow.ui.theme.Black
+import com.example.loginflow.ui.theme.DarkGrayText
+import com.example.loginflow.ui.theme.FontSize14
+import com.example.loginflow.ui.theme.FontSize20
+import com.example.loginflow.ui.theme.FontSize22
+import com.example.loginflow.ui.theme.LightPurpleBackground
+import com.example.loginflow.ui.theme.PurpleBorder
+import com.example.loginflow.ui.theme.PurpleText
+import com.example.loginflow.ui.theme.White
 import com.example.loginflow.R
 
 @Composable
@@ -46,7 +54,7 @@ fun TodaySummaryCard(
     ) {
         Text(
             text = stringResource(R.string.todays_summary),
-            fontSize = 20.sp,
+            fontSize = FontSize20,
             fontWeight = FontWeight.Bold,
             modifier = Modifier.padding(bottom = 12.dp)
         )
@@ -55,9 +63,9 @@ fun TodaySummaryCard(
             modifier = Modifier.fillMaxWidth(),
             shape = RoundedCornerShape(16.dp),
             colors = CardDefaults.cardColors(
-                containerColor = Color(0xFFFCF7FF)
+                containerColor = LightPurpleBackground
             ),
-            border = BorderStroke(1.dp, Color(0xFFB39DDB)),
+            border = BorderStroke(1.dp, PurpleBorder),
             elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
         ) {
             Column(
@@ -79,9 +87,9 @@ fun TodaySummaryCard(
                 // Mood
                 Text(
                     text = mood,
-                    fontSize = 22.sp,
+                    fontSize = FontSize22,
                     fontWeight = FontWeight.Bold,
-                    color = Color(0xFF7E57C2)
+                    color = PurpleText
                 )
 
                 Spacer(modifier = Modifier.height(8.dp))
@@ -89,10 +97,10 @@ fun TodaySummaryCard(
                 // Description
                 Text(
                     text = description,
-                    fontSize = 14.sp,
-                    color = Color(0xFF333333),
+                    fontSize = FontSize14,
+                    color = DarkGrayText,
                     textAlign = TextAlign.Center,
-                    lineHeight = 20.sp
+                    lineHeight = FontSize20
                 )
 
                 Spacer(modifier = Modifier.height(20.dp))
@@ -102,7 +110,7 @@ fun TodaySummaryCard(
                     modifier = Modifier
                         .fillMaxWidth()
                         .clip(RoundedCornerShape(10.dp))
-                        .background(Color.Black)
+                        .background(Black)
                         .clickable { }
                         .padding(vertical = 14.dp),
                     verticalAlignment = Alignment.CenterVertically,
@@ -111,15 +119,15 @@ fun TodaySummaryCard(
                     Icon(
                         imageVector = Icons.Default.PlayArrow,
                         contentDescription = null,
-                        tint = Color.White
+                        tint = White
                     )
 
                     Spacer(modifier = Modifier.width(8.dp))
 
                     Text(
                         text = videoAction,
-                        fontSize = 14.sp,
-                        color = Color.White,
+                        fontSize = FontSize14,
+                        color = White,
                         fontWeight = FontWeight.Medium
                     )
                 }

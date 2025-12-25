@@ -24,12 +24,19 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import com.example.loginflow.ui.theme.FontSize16
+import com.example.loginflow.ui.theme.LightGreenNotificationBackground
+import com.example.loginflow.ui.theme.LightMagentaNotificationBackground
+import com.example.loginflow.ui.theme.LightOrangeNotificationBackground
+import com.example.loginflow.ui.theme.NotificationGreen
+import com.example.loginflow.ui.theme.NotificationMagenta
+import com.example.loginflow.ui.theme.NotificationOrange
+import com.example.loginflow.ui.theme.Red
+import com.example.loginflow.ui.theme.White
 import androidx.navigation.NavController
 import com.example.loginflow.R
 import com.example.loginflow.presentation.authentication.AuthViewModel
@@ -60,7 +67,7 @@ fun NotificationsSettingsScreen(
                     ) {
                         Text(
                             text = stringResource(R.string.notifications_settings),
-                            fontSize = 16.sp,
+                            fontSize = FontSize16,
                             fontWeight = FontWeight.Medium,
                             textAlign = TextAlign.Center
                         )
@@ -78,7 +85,7 @@ fun NotificationsSettingsScreen(
             modifier = Modifier
                 .padding(padding)
                 .fillMaxSize()
-                .background(Color.White)
+                .background(White)
                 .padding(16.dp)
         ) {
 
@@ -92,8 +99,8 @@ fun NotificationsSettingsScreen(
             NotificationItem(
                 title = stringResource(R.string.missed_quiz_notification),
                 subtitle = stringResource(R.string.two_hours_ago),
-                accentColor = Color(0xFFFFA726),
-                backgroundColor = Color(0xFFFFF7EC)
+                accentColor = NotificationOrange,
+                backgroundColor = LightOrangeNotificationBackground
             )
 
             Spacer(modifier = Modifier.height(8.dp))
@@ -101,8 +108,8 @@ fun NotificationsSettingsScreen(
             NotificationItem(
                 title = stringResource(R.string.badge_earned),
                 subtitle = stringResource(R.string.eight_hours_ago),
-                accentColor = Color(0xFFAB47BC),
-                backgroundColor = Color(0xFFF6EFF9)
+                accentColor = NotificationMagenta,
+                backgroundColor = LightMagentaNotificationBackground
             )
 
             Spacer(modifier = Modifier.height(8.dp))
@@ -110,8 +117,8 @@ fun NotificationsSettingsScreen(
             NotificationItem(
                 title = stringResource(R.string.teacher_note),
                 subtitle = stringResource(R.string.one_day_ago),
-                accentColor = Color(0xFF66BB6A),
-                backgroundColor = Color(0xFFF1FAF1)
+                accentColor = NotificationGreen,
+                backgroundColor = LightGreenNotificationBackground
             )
 
             Spacer(modifier = Modifier.height(24.dp))
@@ -139,7 +146,7 @@ fun NotificationsSettingsScreen(
                 icon = Icons.Default.Delete,
                 title = stringResource(R.string.logout),
                 subtitle = stringResource(R.string.sign_out_account),
-                iconTint = Color.Red,
+                iconTint = Red,
                 onClick = {
                     authViewModel.logout()
                     navController.navigate("login") {

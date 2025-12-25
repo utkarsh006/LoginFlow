@@ -18,7 +18,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import com.example.loginflow.ui.theme.Black
+import com.example.loginflow.ui.theme.FontSize12
+import com.example.loginflow.ui.theme.FontSize14
+import com.example.loginflow.ui.theme.Gray
 
 @Composable
 fun NotificationItem(
@@ -45,17 +48,17 @@ fun NotificationItem(
             Column {
                 Text(
                     text = title,
-                    fontSize = 14.sp,
+                    fontSize = FontSize14,
                     fontWeight = FontWeight.SemiBold,
-                    color = Color.Black
+                    color = Black
                 )
 
                 Spacer(modifier = Modifier.height(4.dp))
 
                 Text(
                     text = subtitle,
-                    fontSize = 12.sp,
-                    color = Color.Gray
+                    fontSize = FontSize12,
+                    color = Gray
                 )
             }
         }

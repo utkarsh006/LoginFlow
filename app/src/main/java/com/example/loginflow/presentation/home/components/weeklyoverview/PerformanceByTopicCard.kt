@@ -22,7 +22,12 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import com.example.loginflow.ui.theme.Black
+import com.example.loginflow.ui.theme.FontSize14
+import com.example.loginflow.ui.theme.FontSize16
+import com.example.loginflow.ui.theme.Gray
+import com.example.loginflow.ui.theme.LightGrayDivider
+import com.example.loginflow.ui.theme.White
 import com.example.loginflow.R
 import com.example.loginflow.data.StudentInfoDTO
 
@@ -34,7 +39,7 @@ fun PerformanceByTopicCard(
     Card(
         modifier = modifier.fillMaxWidth(),
         shape = RoundedCornerShape(12.dp),
-        colors = CardDefaults.cardColors(containerColor = Color.White),
+        colors = CardDefaults.cardColors(containerColor = White),
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
         Column(
@@ -44,7 +49,7 @@ fun PerformanceByTopicCard(
         ) {
             PerformanceHeader()
 
-            HorizontalDivider(thickness = 1.dp, color = Color(0xFFE0E0E0))
+            HorizontalDivider(thickness = 1.dp, color = LightGrayDivider)
 
             Spacer(modifier = Modifier.height(12.dp))
 
@@ -67,9 +72,9 @@ private fun PerformanceHeader() {
     ) {
         Text(
             text = stringResource(R.string.performance_by_topic),
-            fontSize = 16.sp,
+            fontSize = FontSize16,
             fontWeight = FontWeight.Bold,
-            color = Color.Black
+            color = Black
         )
 
         Icon(
@@ -94,14 +99,14 @@ private fun PerformanceByTopicRow(
     ) {
         Text(
             text = topic,
-            fontSize = 14.sp,
-            color = Color.Black
+            fontSize = FontSize14,
+            color = Black
         )
 
         Text(
             text = trend,
-            fontSize = 14.sp,
-            color = Color.Gray,
+            fontSize = FontSize14,
+            color = Gray,
             fontWeight = FontWeight.Medium
         )
     }

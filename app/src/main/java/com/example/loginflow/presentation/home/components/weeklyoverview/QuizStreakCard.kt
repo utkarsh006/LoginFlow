@@ -27,7 +27,13 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import com.example.loginflow.ui.theme.Black
+import com.example.loginflow.ui.theme.FontSize12
+import com.example.loginflow.ui.theme.FontSize16
+import com.example.loginflow.ui.theme.Gray
+import com.example.loginflow.ui.theme.Green
+import com.example.loginflow.ui.theme.LightGrayDivider
+import com.example.loginflow.ui.theme.White
 import com.example.loginflow.R
 import com.example.loginflow.data.StudentInfoDTO
 
@@ -39,7 +45,7 @@ fun QuizStreakCard(
     Card(
         modifier = modifier.fillMaxWidth(),
         shape = RoundedCornerShape(12.dp),
-        colors = CardDefaults.cardColors(containerColor = Color.White),
+        colors = CardDefaults.cardColors(containerColor = White),
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
         Column(
@@ -49,7 +55,7 @@ fun QuizStreakCard(
         ) {
             QuizSectionHeader()
 
-            HorizontalDivider(color = Color(0xFFE0E0E0), thickness = 1.dp)
+            HorizontalDivider(color = LightGrayDivider, thickness = 1.dp)
 
             Spacer(modifier = Modifier.height(12.dp))
 
@@ -77,9 +83,9 @@ private fun QuizSectionHeader() {
     ) {
         Text(
             text = stringResource(R.string.quiz_streak),
-            fontSize = 16.sp,
+            fontSize = FontSize16,
             fontWeight = FontWeight.Bold,
-            color = Color.Black
+            color = Black
         )
 
         Icon(
@@ -102,11 +108,11 @@ private fun QuizStreakDay(
 
     Box(
         modifier = if (isCompleted) {
-            baseModifier.background(Color(0xFF4CAF50))
+            baseModifier.background(Green)
         } else {
             baseModifier.border(
                 width = 2.dp,
-                color = Color.Gray.copy(alpha = 0.3f),
+                color = Gray.copy(alpha = 0.3f),
                 shape = CircleShape
             )
         },
@@ -114,8 +120,8 @@ private fun QuizStreakDay(
     ) {
         Text(
             text = if (isCompleted) "✓" else day.take(1).uppercase(),
-            color = if (isCompleted) Color.White else Color.Gray,
-            fontSize = if (isCompleted) 16.sp else 12.sp,
+            color = if (isCompleted) White else Gray,
+            fontSize = if (isCompleted) FontSize16 else FontSize12,
             fontWeight = FontWeight.Medium
         )
     }

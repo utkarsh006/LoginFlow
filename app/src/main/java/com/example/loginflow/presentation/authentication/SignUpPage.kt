@@ -20,11 +20,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import com.example.loginflow.ui.theme.FontSize28
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import com.example.loginflow.R
 import com.example.loginflow.common.ViewExtensions.showToast
+import com.example.loginflow.presentation.navigation.Routes
 
 
 @Composable
@@ -44,8 +45,8 @@ fun SignUpPage(
     LaunchedEffect(authState) {
         when (authState) {
             is AuthState.Authenticated -> {
-                navController.navigate("students") {
-                    popUpTo("signup") { inclusive = true }
+                navController.navigate(Routes.STUDENTS) {
+                    popUpTo(Routes.SIGNUP) { inclusive = true }
                 }
             }
 
@@ -62,7 +63,7 @@ fun SignUpPage(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text(text = stringResource(R.string.signup_page), fontSize = 30.sp)
+        Text(text = stringResource(R.string.signup_page), fontSize = FontSize28)
 
         Spacer(modifier = Modifier.height(16.dp))
 

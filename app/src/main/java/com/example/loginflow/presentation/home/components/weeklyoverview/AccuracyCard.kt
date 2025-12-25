@@ -26,7 +26,13 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import com.example.loginflow.ui.theme.Black
+import com.example.loginflow.ui.theme.ErrorRed
+import com.example.loginflow.ui.theme.FontSize14
+import com.example.loginflow.ui.theme.FontSize16
+import com.example.loginflow.ui.theme.LightErrorRedBackground
+import com.example.loginflow.ui.theme.LightGrayDivider
+import com.example.loginflow.ui.theme.White
 import com.example.loginflow.R
 import com.example.loginflow.data.StudentInfoDTO
 
@@ -40,7 +46,7 @@ fun AccuracyCard(
     Card(
         modifier = modifier.fillMaxWidth(),
         shape = RoundedCornerShape(10.dp),
-        colors = CardDefaults.cardColors(containerColor = Color.White),
+        colors = CardDefaults.cardColors(containerColor = White),
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
     ) {
         Column(
@@ -50,7 +56,7 @@ fun AccuracyCard(
         ) {
             AccuracyHeader()
 
-            HorizontalDivider(color = Color(0xFFE0E0E0), thickness = 1.dp)
+            HorizontalDivider(color = LightGrayDivider, thickness = 1.dp)
 
             Spacer(modifier = Modifier.height(8.dp))
 
@@ -72,9 +78,9 @@ private fun AccuracyHeader() {
     ) {
         Text(
             text = stringResource(R.string.accuracy),
-            fontSize = 16.sp,
+            fontSize = FontSize16,
             fontWeight = FontWeight.Bold,
-            color = Color.Black
+            color = Black
         )
 
         Icon(
@@ -92,9 +98,9 @@ private fun AccuracyText(
 ) {
     Text(
         text = stringResource(R.string.percent_correct, percentage),
-        fontSize = 14.sp,
+        fontSize = FontSize14,
         fontWeight = FontWeight.Medium,
-        color = Color.Black
+        color = Black
     )
 }
 
@@ -108,8 +114,8 @@ private fun AccuracyProgress(
             .fillMaxWidth()
             .height(6.dp)
             .clip(RoundedCornerShape(3.dp)),
-        color = Color(0xFFF26C6C),
-        trackColor = Color(0xFFFDECEC),
+        color = ErrorRed,
+        trackColor = LightErrorRedBackground,
         strokeCap = ProgressIndicatorDefaults.LinearStrokeCap,
     )
 }

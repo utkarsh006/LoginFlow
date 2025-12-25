@@ -22,7 +22,15 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import com.example.loginflow.ui.theme.FontSize12
+import com.example.loginflow.ui.theme.FontSize18
+import com.example.loginflow.ui.theme.Green
+import com.example.loginflow.ui.theme.LightGreenBackground
+import com.example.loginflow.ui.theme.LightOrangeBackground
+import com.example.loginflow.ui.theme.LightRedBackground
+import com.example.loginflow.ui.theme.MediumGrayText
+import com.example.loginflow.ui.theme.Orange
+import com.example.loginflow.ui.theme.Red
 import com.example.loginflow.R
 
 @Composable
@@ -42,8 +50,8 @@ fun StatsCardsRow(
             modifier = Modifier.weight(1f),
             title = stringResource(R.string.availability),
             value = availability,
-            borderColor = Color(0xFF4CAF50),
-            backgroundTint = Color(0xFFEAF7EA),
+            borderColor = Green,
+            backgroundTint = LightGreenBackground,
             iconRes = R.drawable.ic_available
         )
 
@@ -51,8 +59,8 @@ fun StatsCardsRow(
             modifier = Modifier.weight(1f),
             title = stringResource(R.string.quiz),
             value = stringResource(R.string.attempt, quizAttempts),
-            borderColor = Color(0xFFFF9800),
-            backgroundTint = Color(0xFFFFF4E5),
+            borderColor = Orange,
+            backgroundTint = LightOrangeBackground,
             iconRes = R.drawable.ic_quiz
         )
 
@@ -60,8 +68,8 @@ fun StatsCardsRow(
             modifier = Modifier.weight(1f),
             title = stringResource(R.string.accuracy),
             value = accuracy,
-            borderColor = Color(0xFFF44336),
-            backgroundTint = Color(0xFFFFEEEE),
+            borderColor = Red,
+            backgroundTint = LightRedBackground,
             iconRes = R.drawable.ic_accuracy
         )
 
@@ -103,8 +111,8 @@ private fun StatCard(
             Column {
                 Text(
                     text = title,
-                    fontSize = 13.sp,
-                    color = Color(0xFF555555),
+                    fontSize = FontSize12,
+                    color = MediumGrayText,
                     fontWeight = FontWeight.Medium
                 )
 
@@ -112,7 +120,7 @@ private fun StatCard(
 
                 Text(
                     text = value,
-                    fontSize = 18.sp,
+                    fontSize = FontSize18,
                     fontWeight = FontWeight.Bold,
                     color = borderColor
                 )
