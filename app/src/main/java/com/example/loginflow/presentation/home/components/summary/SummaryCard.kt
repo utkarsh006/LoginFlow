@@ -36,7 +36,6 @@ import com.example.loginflow.R
 fun TodaySummaryCard(
     mood: String,
     description: String,
-    videoTitle: String,
     videoAction: String,
     modifier: Modifier = Modifier
 ) {

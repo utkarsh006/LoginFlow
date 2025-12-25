@@ -11,7 +11,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.Divider
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -25,7 +25,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.loginflow.R
 import com.example.loginflow.data.StudentInfoDTO
-import kotlin.collections.forEach
 
 @Composable
 fun PerformanceByTopicCard(
@@ -43,53 +42,67 @@ fun PerformanceByTopicCard(
                 .fillMaxWidth()
                 .padding(16.dp)
         ) {
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Text(
-                    text = stringResource(R.string.performance_by_topic),
-                    fontSize = 16.sp,
-                    fontWeight = FontWeight.Bold,
-                    color = Color.Black
-                )
-                Icon(
-                    painter = painterResource(id = R.drawable.ic_performance_weekly),
-                    contentDescription = stringResource(R.string.quiz_streak_icon),
-                    modifier = Modifier.size(40.dp),
-                    tint = Color.Unspecified
-                )
-            }
+            PerformanceHeader()
 
-
-            Divider(
-                color = Color(0xFFE0E0E0),
-                thickness = 1.dp
-            )
+            HorizontalDivider(thickness = 1.dp, color = Color(0xFFE0E0E0))
 
             Spacer(modifier = Modifier.height(12.dp))
 
             performanceByTopic.forEach { topic ->
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(vertical = 8.dp),
-                    horizontalArrangement = Arrangement.SpaceBetween
-                ) {
-                    Text(
-                        text = topic.topic,
-                        fontSize = 14.sp,
-                        color = Color.Black
-                    )
-                    Text(
-                        text = topic.trend,
-                        fontSize = 14.sp,
-                        color = Color.Gray,
-                        fontWeight = FontWeight.Medium
-                    )
-                }
+                PerformanceByTopicRow(
+                    topic = topic.topic,
+                    trend = topic.trend
+                )
             }
         }
+    }
+}
+
+@Composable
+private fun PerformanceHeader() {
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.SpaceBetween,
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Text(
+            text = stringResource(R.string.performance_by_topic),
+            fontSize = 16.sp,
+            fontWeight = FontWeight.Bold,
+            color = Color.Black
+        )
+
+        Icon(
+            painter = painterResource(id = R.drawable.ic_performance_weekly),
+            contentDescription = stringResource(R.string.performance_by_topic),
+            modifier = Modifier.size(40.dp),
+            tint = Color.Unspecified
+        )
+    }
+}
+
+@Composable
+private fun PerformanceByTopicRow(
+    topic: String,
+    trend: String
+) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(vertical = 8.dp),
+        horizontalArrangement = Arrangement.SpaceBetween
+    ) {
+        Text(
+            text = topic,
+            fontSize = 14.sp,
+            color = Color.Black
+        )
+
+        Text(
+            text = trend,
+            fontSize = 14.sp,
+            color = Color.Gray,
+            fontWeight = FontWeight.Medium
+        )
     }
 }

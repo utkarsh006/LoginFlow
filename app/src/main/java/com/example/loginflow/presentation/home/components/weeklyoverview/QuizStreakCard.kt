@@ -15,7 +15,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.Divider
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -30,7 +30,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.loginflow.R
 import com.example.loginflow.data.StudentInfoDTO
-import kotlin.collections.forEach
 
 @Composable
 fun QuizStreakCard(
@@ -48,30 +47,9 @@ fun QuizStreakCard(
                 .fillMaxWidth()
                 .padding(16.dp)
         ) {
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Text(
-                    text = stringResource(R.string.quiz_streak),
-                    fontSize = 16.sp,
-                    fontWeight = FontWeight.Bold,
-                    color = Color.Black
-                )
+            QuizSectionHeader()
 
-                Icon(
-                    painter = painterResource(id = R.drawable.ic_quiz_streak),
-                    contentDescription = stringResource(R.string.quiz_streak_icon),
-                    modifier = Modifier.size(40.dp),
-                    tint = Color.Unspecified
-                )
-            }
-
-            Divider(
-                color = Color(0xFFE0E0E0),
-                thickness = 1.dp
-            )
+            HorizontalDivider(color = Color(0xFFE0E0E0), thickness = 1.dp)
 
             Spacer(modifier = Modifier.height(12.dp))
 
@@ -79,46 +57,66 @@ fun QuizStreakCard(
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                // Display all days in order
                 quizStreak.forEach { streak ->
-                    val isCompleted = streak.status.equals("completed", ignoreCase = true) ||
-                            streak.status.equals("present", ignoreCase = true)
-
-                    if (isCompleted) {
-                        // Completed day - green checkmark
-                        Box(
-                            modifier = Modifier
-                                .size(32.dp)
-                                .clip(CircleShape)
-                                .background(Color(0xFF4CAF50)),
-                            contentAlignment = Alignment.Center
-                        ) {
-                            Text(
-                                text = "✓",
-                                color = Color.White,
-                                fontSize = 16.sp,
-                                fontWeight = FontWeight.Bold
-                            )
-                        }
-                    } else {
-                        // Incomplete day - dashed circle with day letter
-                        Box(
-                            modifier = Modifier
-                                .size(32.dp)
-                                .clip(CircleShape)
-                                .border(2.dp, Color.Gray.copy(alpha = 0.3f), CircleShape),
-                            contentAlignment = Alignment.Center
-                        ) {
-                            Text(
-                                text = streak.day.take(1).uppercase(),
-                                fontSize = 12.sp,
-                                color = Color.Gray,
-                                fontWeight = FontWeight.Medium
-                            )
-                        }
-                    }
+                    QuizStreakDay(
+                        day = streak.day,
+                        isCompleted = streak.status == "done"
+                    )
                 }
             }
         }
+    }
+}
+
+@Composable
+private fun QuizSectionHeader() {
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.SpaceBetween,
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Text(
+            text = stringResource(R.string.quiz_streak),
+            fontSize = 16.sp,
+            fontWeight = FontWeight.Bold,
+            color = Color.Black
+        )
+
+        Icon(
+            painter = painterResource(id = R.drawable.ic_quiz_streak),
+            contentDescription = stringResource(R.string.quiz_streak_icon),
+            modifier = Modifier.size(40.dp),
+            tint = Color.Unspecified
+        )
+    }
+}
+
+@Composable
+private fun QuizStreakDay(
+    day: String,
+    isCompleted: Boolean
+) {
+    val baseModifier = Modifier
+        .size(32.dp)
+        .clip(CircleShape)
+
+    Box(
+        modifier = if (isCompleted) {
+            baseModifier.background(Color(0xFF4CAF50))
+        } else {
+            baseModifier.border(
+                width = 2.dp,
+                color = Color.Gray.copy(alpha = 0.3f),
+                shape = CircleShape
+            )
+        },
+        contentAlignment = Alignment.Center
+    ) {
+        Text(
+            text = if (isCompleted) "✓" else day.take(1).uppercase(),
+            color = if (isCompleted) Color.White else Color.Gray,
+            fontSize = if (isCompleted) 16.sp else 12.sp,
+            fontWeight = FontWeight.Medium
+        )
     }
 }

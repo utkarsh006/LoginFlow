@@ -12,8 +12,10 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Divider
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.LinearProgressIndicator
+import androidx.compose.material3.ProgressIndicatorDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -33,63 +35,81 @@ fun AccuracyCard(
     overallAccuracy: StudentInfoDTO.WeeklyOverview.OverallAccuracy,
     modifier: Modifier = Modifier
 ) {
+    val progress = (overallAccuracy.percentage / 100f).coerceIn(0f, 1f)
+
     Card(
         modifier = modifier.fillMaxWidth(),
         shape = RoundedCornerShape(10.dp),
         colors = CardDefaults.cardColors(containerColor = Color.White),
-        elevation = CardDefaults.cardElevation(4.dp)
+        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
     ) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(16.dp)
         ) {
+            AccuracyHeader()
 
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Text(
-                    text = stringResource(R.string.accuracy),
-                    fontSize = 16.sp,
-                    fontWeight = FontWeight.Bold,
-                    color = Color.Black
-                )
-
-                Icon(
-                    painter = painterResource(id = R.drawable.ic_accuracy_weekly),
-                    contentDescription = null,
-                    modifier = Modifier.size(36.dp),
-                    tint = Color.Unspecified
-                )
-            }
-
-            Divider(
-                color = Color(0xFFE0E0E0),
-                thickness = 1.dp
-            )
+            HorizontalDivider(color = Color(0xFFE0E0E0), thickness = 1.dp)
 
             Spacer(modifier = Modifier.height(8.dp))
 
-            Text(
-                text = stringResource(R.string.percent_correct, overallAccuracy.percentage),
-                fontSize = 14.sp,
-                fontWeight = FontWeight.Medium,
-                color = Color.Black
-            )
+            AccuracyText(percentage = overallAccuracy.percentage)
 
             Spacer(modifier = Modifier.height(10.dp))
 
-            LinearProgressIndicator(
-                progress = overallAccuracy.percentage / 100f,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(6.dp)
-                    .clip(RoundedCornerShape(3.dp)),
-                color = Color(0xFFF26C6C),
-                trackColor = Color(0xFFFDECEC)
-            )
+            AccuracyProgress(progress = progress)
         }
     }
+}
+
+@Composable
+private fun AccuracyHeader() {
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.SpaceBetween,
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Text(
+            text = stringResource(R.string.accuracy),
+            fontSize = 16.sp,
+            fontWeight = FontWeight.Bold,
+            color = Color.Black
+        )
+
+        Icon(
+            painter = painterResource(id = R.drawable.ic_accuracy_weekly),
+            contentDescription = null,
+            modifier = Modifier.size(36.dp),
+            tint = Color.Unspecified
+        )
+    }
+}
+
+@Composable
+private fun AccuracyText(
+    percentage: Int
+) {
+    Text(
+        text = stringResource(R.string.percent_correct, percentage),
+        fontSize = 14.sp,
+        fontWeight = FontWeight.Medium,
+        color = Color.Black
+    )
+}
+
+@Composable
+private fun AccuracyProgress(
+    progress: Float
+) {
+    LinearProgressIndicator(
+        progress = { progress },
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(6.dp)
+            .clip(RoundedCornerShape(3.dp)),
+        color = Color(0xFFF26C6C),
+        trackColor = Color(0xFFFDECEC),
+        strokeCap = ProgressIndicatorDefaults.LinearStrokeCap,
+    )
 }

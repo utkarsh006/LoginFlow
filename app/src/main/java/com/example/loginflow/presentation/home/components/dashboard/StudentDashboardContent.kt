@@ -56,7 +56,6 @@ fun StudentDashboardContent(
         TodaySummaryCard(
             mood = studentInfo.todaySummary.mood,
             description = studentInfo.todaySummary.description,
-            videoTitle = studentInfo.todaySummary.recommendedVideo.title,
             videoAction = studentInfo.todaySummary.recommendedVideo.actionText
         )
 
