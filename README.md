@@ -186,16 +186,7 @@ This assignment was developed following a structured, feature-driven approach:
 - Session persistence
 - Automatic navigation based on auth state
 
-#### 5. 🌍 Internationalization (strings.xml)
-**Objective**: Move hardcoded strings to resource files for better maintainability
-**Benefits**:
-- Multi-language support ready
-- Centralized string management
-- Easier maintenance and updates
-- Better accessibility
-
-
-#### 6. 🎨 Consistent Font Styling
+#### 5. 🎨 Consistent Font Styling
 **Objective**: Establish design system consistency across the entire application
 **Solution**:
 - Centralized typography in `ui/theme/Type.kt`
